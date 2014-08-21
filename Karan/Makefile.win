@@ -1,0 +1,30 @@
+# Project: CG_Karan
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = Final_draft.o $(RES)
+LINKOBJ  = Final_draft.o $(RES)
+LIBS =  -L"C:/Dev-Cpp/lib" C:/Dev-Cpp/lib/libopengl32.a C:/Dev-Cpp/lib/libglu32.a C:/Dev-Cpp/lib/libglut32.a  
+INCS =  -I"C:/Dev-Cpp/include" 
+CXXINCS =  -I"C:/Dev-Cpp/lib/gcc/mingw32/3.4.2/include"  -I"C:/Dev-Cpp/include/c++/3.4.2/backward"  -I"C:/Dev-Cpp/include/c++/3.4.2/mingw32"  -I"C:/Dev-Cpp/include/c++/3.4.2"  -I"C:/Dev-Cpp/include" 
+BIN  = CG_Karan.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before CG_Karan.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "CG_Karan.exe" $(LIBS)
+
+Final_draft.o: Final_draft.cpp
+	$(CPP) -c Final_draft.cpp -o Final_draft.o $(CXXFLAGS)

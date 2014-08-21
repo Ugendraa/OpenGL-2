@@ -1,0 +1,30 @@
+# Project: Test8
+# Makefile created by Dev-C++ 4.9.9.2
+
+CPP  = g++.exe
+CC   = gcc.exe
+WINDRES = windres.exe
+RES  = 
+OBJ  = Rectangle.o $(RES)
+LINKOBJ  = Rectangle.o $(RES)
+LIBS =  -L"lib"  "../../../Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libopengl32.a" "../../../Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libglu32.a" "../../../Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib/libglut32.a"  ../../../Dev-Cpp/lib/libopengl32.a ../../../Dev-Cpp/lib/libglu32.a ../../../Dev-Cpp/lib/libglut32.a  
+INCS =  -I"include" 
+CXXINCS =  -I"lib/gcc/mingw32/3.4.2/include"  -I"include/c++/3.4.2/backward"  -I"include/c++/3.4.2/mingw32"  -I"include/c++/3.4.2"  -I"include" 
+BIN  = Test8.exe
+CXXFLAGS = $(CXXINCS)  
+CFLAGS = $(INCS)  
+RM = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before Test8.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "Test8.exe" $(LIBS)
+
+Rectangle.o: Rectangle.cpp
+	$(CPP) -c Rectangle.cpp -o Rectangle.o $(CXXFLAGS)
